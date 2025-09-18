@@ -53,26 +53,26 @@
 ### 2️⃣ 安裝步驟
 
 Step1. 下載專案
-```bash
+```cmd
 git clone https://github.com/Leiinori/Stock_Database.git
 cd Stock_Database
 ```
 
 Step2. 安裝套件 <br>
 使用requirements.txt 安裝 :
-```bash
+```cmd
 pip install -r requirements.txt
 ```
 
 手動安裝 : <br>
-```bash
+```cmd
 pip install requests pandas pyodbc
 ```
 
 Step3. 建立資料庫與資料表
 建立資料表 (MS SQL Server)，以建立 資料庫Stock & 建立 資料表TSMC 為範例 <br>
 使用SQL指令建立 :
-```bash
+```sql
 -- 建立資料庫 (若不存在)
 IF NOT EXISTS (
     SELECT name FROM sys.databases WHERE name = N'Stock'
@@ -110,13 +110,13 @@ GO
 
 
 ### 3️⃣ 使用方式
-Step1. 開啟主程式 stock_database.py，修改目標股票的代碼參數
-```bash
+Step1. 開啟主程式 Stock_Database.py，修改目標股票的代碼參數
+```python
 stock_code = "2330"  # 台積電
 ```
 
 Step 2. 修改資料庫連線資訊
-```bash
+```python
 conn = pyodbc.connect(
     r'DRIVER={ODBC Driver 17 for SQL Server};'
     r'SERVER=你的伺服器名稱;'
@@ -126,12 +126,12 @@ conn = pyodbc.connect(
 ```
 
 Step 3. 修改資料表資訊
-```bash
+```python
 MERGE INTO 資料表名稱 AS target
 ```
 
 Step 4. 執行程式
-```bash
+```cmd
 python Stock_Database.py
 ```
 
