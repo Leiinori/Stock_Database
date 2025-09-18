@@ -9,7 +9,7 @@
 ## 📖 專案簡介
 學習到Python爬蟲與資料庫的單元時，給自己的一個小專題題目作為練習，並記錄製作過程遇到的問題與解決方式。
 
-使用台灣證券所提供的API查詢個股日成交資訊，並將資料做處理後，匯入資料庫中
+本專案用於 **自動抓取台灣證券交易所 (TWSE) 的股價資料**，並將資料寫入 **MS SQL Server 資料庫**，主程式與資料庫以台積電(2330)為例子。
 
 - 適用對象：收集股票資訊需求，並建立資料庫持續收集資料，用於分析或其他應用者
 - 使用的程式語言：Python + MS SQL
@@ -25,30 +25,21 @@
 
 ## 📂 專案結構
 <<<Stock_Database>>> <br>
-├── Stock_Database.py # 主程式碼 <br>
-├── Stock.bacpac # 資料庫的格式 <br>
-├── Note # 編寫心得與註記 <br>
-└── README.md <br>
-
-Stock_Database/
-├─ Stock2330.py           # 主程式，抓取 TWSE 股價並寫入資料庫
-├─ requirements.txt       # 套件需求
-├─ README.md              # 專案說明文件
-├─ sql/
-│   └─ create_tsmc.sql    # SQL 建表語法
-└─ data/
-    └─ sample.json        # 範例 API JSON 資料 (可選)
-
+├── Stock_Database.py    # 主程式，抓取 TWSE 股價並寫入資料庫 <br>
+├── requirements.txt     # 套件需求 <br>
+├── Stock.bacpac         # 資料庫的格式(以資料表 TSMC 為範例) <br>
+├── Note                 # 編寫心得與註記 <br>
+└── README.md            # 專案說明文件 <br>
 
 ---
 
 ## 🚀 安裝與使用
 
 ### 1️⃣ 環境需求
-- Python-3.13.6 # 開發所用的版本 <br>
+- Python (>=3.9)    # 開發所用的版本為3.13.6 <br>
 - requests <br>
-- beautifulsoup4 <br>
-- Pillow <br>
+- pandas <br>
+- pyodbc <br>
 
 ### 2️⃣ 安裝步驟
 ```bash
