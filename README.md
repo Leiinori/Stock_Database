@@ -77,20 +77,36 @@ CREATE TABLE TSMC (
 ```
 2-3. 建立資料表 (匯入Stock.bacpac)
 
----
-
 ### 3️⃣ 使用方式
 <<<步驟 1>>> <br>
-安裝Python
+開啟Stock_Database.py
 
 <<<步驟 2>>> <br>
-安裝所需的套件
+輸出想查詢的股票代碼，這裡是以台積電(2330)為例
+stock_code = "2330"
 
 <<<步驟 3>>> <br>
-下載主程式檔nhentai_downloader.py
+修改MS SQL Sever對應參數
+conn = pyodbc.connect(
+    r'DRIVER={ODBC Driver 17 for SQL Server};'
+    r'SERVER=你的伺服器名稱;'
+    r'DATABASE=Stock;'
+    r'Trusted_Connection=yes;'
+)
 
 <<<步驟 4>>> <br>
-編譯執行程式，輸入對應的6碼開始下載
+執行程式
+```bash
+python Stock2330.py
+```
+
+<<<範例輸出>>>
+程式會在終端顯示處理進度，以台積電(2330)為例：
+
+正在從台灣證券交易所抓取 2330 在 202509 的股價資料...
+資料抓取成功，正在進行處理...
+資料清理完成，共 20 筆有效交易日。
+資料已成功同步至 Stock.TSMC (股票代號: 2330)
 
 ---
 
