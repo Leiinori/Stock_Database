@@ -29,12 +29,14 @@
 ---
 
 ## 📂 專案結構
-<<<Stock_Database>>> <br>
-├── Stock_Database.py    # 主程式，抓取 TWSE 股價並寫入資料庫 <br>
-├── requirements.txt     # 套件需求 <br>
-├── Stock.bacpac         # 資料庫的格式(以資料表 TSMC 為範例) <br>
-├── LICENSE              # LICENSE <br>
-└── README.md            # 專案說明文件 <br>
+```nginx
+Stock_Database
+├── Stock_Database.py    # 主程式，抓取 TWSE 股價並寫入資料庫
+├── requirements.txt     # 套件需求
+├── Stock.bacpac         # 資料庫的格式(以資料表 TSMC 為範例)
+├── LICENSE              # LICENSE
+└── README.md            # 專案說明文件
+```
 
 ---
 
@@ -53,19 +55,19 @@
 ### 2️⃣ 安裝步驟
 
 Step1. 下載專案
-```cmd
+```bash
 git clone https://github.com/Leiinori/Stock_Database.git
 cd Stock_Database
 ```
 
 Step2. 安裝套件 <br>
 使用requirements.txt 安裝 :
-```cmd
+```bash
 pip install -r requirements.txt
 ```
 
 手動安裝 : <br>
-```cmd
+```bash
 pip install requests pandas pyodbc
 ```
 
@@ -125,18 +127,18 @@ conn = pyodbc.connect(
 )
 ```
 
-Step 3. 修改資料表資訊
-```python
-MERGE INTO 資料表名稱 AS target
+Step 3. 修改資料表資訊，以台積電(TSMC)為例
+```sql
+MERGE INTO TSMC AS target
 ```
 
 Step 4. 執行程式
-```cmd
+```bash
 python Stock_Database.py
 ```
 
 Step 5. 範例輸出，以台積電(2330)為例
-```bash
+```yaml
 正在從台灣證券交易所抓取 2330 在 202509 的股價資料...
 資料抓取成功，正在進行處理...
 資料清理完成，共 20 筆有效交易日。
