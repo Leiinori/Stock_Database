@@ -57,12 +57,12 @@ cd Stock_Database
 ```
 
 Step2. 安裝套件 <br>
-使用requirements.txt 安裝
+使用requirements.txt 安裝 :
 ```bash
 pip install -r requirements.txt
 ```
 
-手動安裝 <br>
+手動安裝 : <br>
 ```bash
 pip install requests pandas pyodbc
 ```
