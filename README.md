@@ -98,11 +98,11 @@ GO
 開啟Stock_Database.py
 
 <<<步驟 2>>> <br>
-輸出想查詢的股票代碼，這裡是以台積電(2330)為例
+輸出想查詢的股票代碼，這裡是以台積電(2330)為例 <br>
 stock_code = "2330"
 
 <<<步驟 3>>> <br>
-修改MS SQL Sever對應參數
+修改MS SQL Sever對應參數 <br>
 conn = pyodbc.connect(
     r'DRIVER={ODBC Driver 17 for SQL Server};'
     r'SERVER=你的伺服器名稱;'
@@ -111,7 +111,7 @@ conn = pyodbc.connect(
 )
 
 <<<步驟 4>>> <br>
-若建立其他股票的資料表，修改對應SQL語法
+若建立其他股票的資料表，修改對應SQL語法 <br>
 MERGE INTO 資料表名稱 AS target
 
 <<<步驟 5>>> <br>
