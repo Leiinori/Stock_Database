@@ -107,17 +107,12 @@ GO
 
 
 ### 3️⃣ 使用方式
-Step1. <br>
-開啟Stock_Database.py
-
-<<<步驟 2>>> <br>
-輸出想查詢的股票代碼，這裡是以台積電(2330)為例
+Step1. 開啟主程式 stock_database.py，修改目標股票的代碼參數
 ```bash
-stock_code = "2330"
+stock_code = "2330"  # 台積電
 ```
 
-<<<步驟 3>>> <br>
-修改MS SQL Sever對應參數
+Step 2. 修改資料庫連線資訊
 ```bash
 conn = pyodbc.connect(
     r'DRIVER={ODBC Driver 17 for SQL Server};'
@@ -127,25 +122,23 @@ conn = pyodbc.connect(
 )
 ```
 
-<<<步驟 4>>> <br>
-若建立其他股票的資料表，修改對應SQL語法 <br>
+Step 3. 修改資料表資訊
 ```bash
 MERGE INTO 資料表名稱 AS target
 ```
 
-<<<步驟 5>>> <br>
-執行程式
+Step 4. 執行程式
 ```bash
-python Stock2330.py
+python Stock_Database.py
 ```
 
-<<<範例輸出>>>
-程式會在終端顯示處理進度，以台積電(2330)為例： <br>
-
+Step 5. 範例輸出，以台積電(2330)為例
+```bash
 正在從台灣證券交易所抓取 2330 在 202509 的股價資料... <br>
 資料抓取成功，正在進行處理... <br>
 資料清理完成，共 20 筆有效交易日。 <br>
 資料已成功同步至 Stock.TSMC (股票代號: 2330) <br>
+```
 
 ---
 
@@ -158,10 +151,26 @@ python Stock2330.py
 ---
 
 ## 📌 開發計劃
- <<<已完成的功能>>> <br>
-- 自動辨識當前時間的月份，並抓取該股票對應月份的資訊 <br>
-- 抓取成功後匯入資料庫的資料表中 <br>
+✅ 已完成 <br>
+- 抓取單檔股票資料並存入資料庫 <br>
+- 自動判斷當月日期 <br>
+- SQL MERGE 同步避免重複
 
- <<<計劃中的功能>>> <br>
-- 加入排程功能，讓程式可以每天固定時間進行抓取並匯入資料表中 <br>
+🚧 計劃中 <br>
+- 支援多股票批次匯入 <br>
+- 加入排程 (每日自動抓取) <br>
 
+---
+
+📜 授權
+
+本專案採用 MIT License
+。
+
+---
+
+👤 作者
+
+Ming Lei (GitHub)
+
+---
