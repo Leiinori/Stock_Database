@@ -31,7 +31,7 @@
 ├── Stock_Database.py    # 主程式，抓取 TWSE 股價並寫入資料庫 <br>
 ├── requirements.txt     # 套件需求 <br>
 ├── Stock.bacpac         # 資料庫的格式(以資料表 TSMC 為範例) <br>
-├── LICENSE
+├── LICENSE              # LICENSE <br>
 └── README.md            # 專案說明文件 <br>
 
 ---
