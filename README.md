@@ -12,7 +12,7 @@
 本專案用於 **自動抓取台灣證券交易所 (TWSE) 的股價資料**，並將資料寫入 **MS SQL Server 資料庫**，主程式與資料庫以台積電(2330)為例子。
 
 - 適用對象：收集股票資訊需求，並建立資料庫持續收集資料，用於分析或其他應用者
-- 使用的程式語言：Python + MS SQL
+- 使用的程式語言：Python + MS SQL Server
 
 ---
 
@@ -28,7 +28,6 @@
 ├── Stock_Database.py    # 主程式，抓取 TWSE 股價並寫入資料庫 <br>
 ├── requirements.txt     # 套件需求 <br>
 ├── Stock.bacpac         # 資料庫的格式(以資料表 TSMC 為範例) <br>
-├── Note                 # 編寫心得與註記 <br>
 └── README.md            # 專案說明文件 <br>
 
 ---
