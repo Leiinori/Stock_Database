@@ -56,8 +56,8 @@ git clone https://github.com/Leiinori/Stock_Database.git
 cd Stock_Database
 ```
 
-Step2. 安裝套件
-使用requirements.txt 安裝 <br>
+Step2. 安裝套件 <br>
+使用requirements.txt 安裝
 ```bash
 pip install -r requirements.txt
 ```
