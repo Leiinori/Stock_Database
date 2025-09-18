@@ -1,0 +1,4 @@
+requests>=2.31.0
+pandas>=2.2.0
+pyodbc>=4.0.39
+urllib3>=2.2.0
