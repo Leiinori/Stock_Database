@@ -42,22 +42,22 @@
 
 ### 2️⃣ 安裝步驟
 
-# 2-1. 下載專案
+2-1. 下載專案
 ```bash
 git clone https://github.com/Leiinori/Stock_Database.git
 ```
 
-# 2-2. 安裝套件(使用requirements.txt)
+2-2. 安裝套件(使用requirements.txt)
 ```bash
 pip install -r requirements.txt
 ```
 
-# 2-2. 安裝套件(手動)
+2-2. 安裝套件(手動)
 ```bash
 pip install requests pandas pyodbc
 ```
 
-# 2-3. 建立資料表 (MS SQL Server)
+2-3. 建立資料表 (MS SQL Server)
 ```bash
 USE Stock;
 GO
@@ -75,7 +75,7 @@ CREATE TABLE TSMC (
     CONSTRAINT PK_TSMC PRIMARY KEY (StockCode, TradeDate)
 );
 ```
-# 2-3. 建立資料表 (匯入Stock.bacpac)
+2-3. 建立資料表 (匯入Stock.bacpac)
 
 ---
 
