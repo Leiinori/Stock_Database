@@ -41,14 +41,41 @@
 - pyodbc <br>
 
 ### 2️⃣ 安裝步驟
+
+# 2-1. 下載專案
 ```bash
-# 下載專案
-git clone https://github.com/Leiinori/NH_Downloader.git
-
-# 安裝依賴
-pip install requests beautifulsoup4 Pillow
-
+git clone https://github.com/Leiinori/Stock_Database.git
 ```
+
+# 2-2. 安裝套件(使用requirements.txt)
+```bash
+pip install -r requirements.txt
+```
+
+# 2-2. 安裝套件(手動)
+```bash
+pip install requests pandas pyodbc
+```
+
+# 2-3. 建立資料表 (MS SQL Server)
+```bash
+USE Stock;
+GO
+CREATE TABLE TSMC (
+    StockCode   VARCHAR(10) NOT NULL,
+    TradeDate   DATE NOT NULL,
+    Volume      BIGINT,
+    Turnover    BIGINT,
+    OpenPrice   DECIMAL(10,2),
+    HighPrice   DECIMAL(10,2),
+    LowPrice    DECIMAL(10,2),
+    ClosePrice  DECIMAL(10,2),
+    Change      DECIMAL(10,2),
+    TradeCount  INT,
+    CONSTRAINT PK_TSMC PRIMARY KEY (StockCode, TradeDate)
+);
+```
+# 2-3. 建立資料表 (匯入Stock.bacpac)
 
 ---
 
