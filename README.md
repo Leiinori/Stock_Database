@@ -57,23 +57,39 @@ pip install -r requirements.txt
 pip install requests pandas pyodbc
 ```
 
-2-3. 建立資料表 (MS SQL Server)
+2-3. 建立資料表 (MS SQL Server)，以建立 資料庫Stock & 建立 資料表TSMC 為範例
 ```bash
+-- 建立資料庫 (若不存在)
+IF NOT EXISTS (
+    SELECT name FROM sys.databases WHERE name = N'Stock'
+)
+BEGIN
+    CREATE DATABASE Stock;
+END
+GO
+
+-- 切換至 Stock 資料庫
 USE Stock;
 GO
-CREATE TABLE TSMC (
-    StockCode   VARCHAR(10) NOT NULL,
-    TradeDate   DATE NOT NULL,
-    Volume      BIGINT,
-    Turnover    BIGINT,
-    OpenPrice   DECIMAL(10,2),
-    HighPrice   DECIMAL(10,2),
-    LowPrice    DECIMAL(10,2),
-    ClosePrice  DECIMAL(10,2),
-    Change      DECIMAL(10,2),
-    TradeCount  INT,
-    CONSTRAINT PK_TSMC PRIMARY KEY (StockCode, TradeDate)
-);
+
+-- 建立資料表 TSMC
+IF OBJECT_ID('TSMC', 'U') IS NULL
+BEGIN
+    CREATE TABLE TSMC (
+        StockCode   VARCHAR(10) NOT NULL,
+        TradeDate   DATE NOT NULL,
+        Volume      BIGINT,
+        Turnover    BIGINT,
+        OpenPrice   DECIMAL(10,2),
+        HighPrice   DECIMAL(10,2),
+        LowPrice    DECIMAL(10,2),
+        ClosePrice  DECIMAL(10,2),
+        Change      DECIMAL(10,2),
+        TradeCount  INT,
+        CONSTRAINT PK_TSMC PRIMARY KEY (StockCode, TradeDate)
+    );
+END
+GO
 ```
 2-3. 建立資料表 (匯入Stock.bacpac)
 
@@ -95,6 +111,10 @@ conn = pyodbc.connect(
 )
 
 <<<步驟 4>>> <br>
+若建立其他股票的資料表，修改對應SQL語法
+MERGE INTO 資料表名稱 AS target
+
+<<<步驟 5>>> <br>
 執行程式
 ```bash
 python Stock2330.py
@@ -107,6 +127,14 @@ python Stock2330.py
 資料抓取成功，正在進行處理...
 資料清理完成，共 20 筆有效交易日。
 資料已成功同步至 Stock.TSMC (股票代號: 2330)
+
+---
+
+## 🔗 參考
+
+- [TWSE API](https://www.twse.com.tw/zh/page/trading/exchange/STOCK_DAY.html)
+- [pandas 官方文件](https://pandas.pydata.org/docs/)
+- [pyodbc 官方文件](https://github.com/mkleehammer/pyodbc)
 
 ---
 
